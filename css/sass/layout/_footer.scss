@@ -1,0 +1,20 @@
+/*Start Footer Section*/
+footer {
+    background-color: $darkColor;
+    padding: 20px 0;
+    color: #FFF;
+    text-align: center;
+
+    p {
+        margin: 0;
+        font-size: 18px;
+        font-weight: 600;
+
+        span {
+            color: $mainColor;
+            font-weight: bold;
+        }
+    }
+}
+
+/* End Footer Section*/

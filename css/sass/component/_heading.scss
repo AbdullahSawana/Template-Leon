@@ -1,0 +1,29 @@
+/* Main Heading Property */
+.main-heading {
+    text-align: center;
+    font-size: 100px;
+    color: $lightColor;
+    letter-spacing: -3px;
+    margin: 0;
+    font-weight: 800;
+    text-transform: capitalize;
+
+    @include breakPoint(mobile) {
+        font-size: 70px;
+        letter-spacing: -2px;
+    }
+}
+
+.main-heading+p {
+    margin-top: -30px;
+    margin-bottom: $paddingBottom;
+    color: $textColor;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+
+    @include breakPoint(mobile) {
+        font-size: normal;
+        margin-top: -20px;
+    }
+}

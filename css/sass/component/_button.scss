@@ -1,0 +1,20 @@
+// Property of Main Button
+.main-btn {
+    border: none;
+    background-color: rgba($darkColor, 0.8);
+    color: $mainColor;
+    width: fit-content;
+    margin: 40px auto;
+    padding: 10px 20px;
+    display: block;
+    font-size: 20px;
+    font-weight: 600;
+    cursor: pointer;
+    user-select: none;
+    @include prefixer(border-radius, 8px, webkit moz o);
+    @include prefixer(transition, $transition, webkit moz o);
+
+    &:hover {
+        background-color: $darkColor;
+    }
+}

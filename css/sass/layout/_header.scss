@@ -1,0 +1,93 @@
+/* Start Header WebSite */
+header {
+    padding: 20px 0;
+    position: relative;
+
+    .header-content {
+        @include flexbox(space-between);
+
+        img {
+            width: 60px;
+            flex-basis: 60px;
+        }
+
+        nav {
+            flex: 1;
+            @include flexbox(flex-end);
+            position: relative;
+
+            .icon {
+                width: 30px;
+                display: flex;
+                flex-wrap: wrap;
+                cursor: pointer;
+                justify-content: flex-end;
+
+                span {
+                    height: 2px;
+                    background-color: $darkColor;
+                    margin-bottom: 6px;
+                    @include prefixer(transition, 0.2s, webkit moz o);
+
+                    &:not(:nth-child(2)) {
+                        width: 100%;
+                    }
+
+                    &:nth-child(2) {
+                        width: 60%;
+                    }
+                }
+
+                &::after {
+                    content: "";
+                    position: absolute;
+                    top: 22px;
+                    right: 5px;
+                    border-width: 10px;
+                    border-style: solid;
+                    border-color: transparent transparent #37505E transparent;
+                    @include opacity(0);
+                }
+
+                &.show span:nth-child(2) {
+                    width: 100%;
+                }
+
+                &.show::after {
+                    @include opacity(1);
+                }
+            }
+
+            .links {
+                position: absolute;
+                top: 42px;
+                right: 0;
+                background-color: $darkColor;
+                width: 200px;
+                z-index: 6;
+                overflow: hidden;
+                display: none;
+
+                a {
+                    display: block;
+                    padding: 15px;
+                    text-decoration: none;
+                    color: #FFF;
+                    font-weight: 400;
+                    @include prefixer(transition, $transition, webkit moz o);
+
+                    &:hover {
+                        padding-left: 25px;
+                        color: $mainColor;
+                    }
+                }
+
+                &.show {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+/*End Header WebSite*/

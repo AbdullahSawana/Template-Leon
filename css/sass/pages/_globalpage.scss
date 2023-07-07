@@ -1,0 +1,79 @@
+/* Start Global Rules */
+* {
+    @include prefixer(box-sizing, border-box, webkit moz o);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Work Sans', sans-serif;
+}
+
+.container {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-left: auto;
+    margin-right: auto;
+
+    @include breakPoint(mobile) {}
+
+    @include breakPoint(small) {
+        width: 750px;
+    }
+
+    @include breakPoint(medium) {
+        width: 970px;
+    }
+
+    @include breakPoint(large) {
+        width: 1170px;
+    }
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+}
+
+::-webkit-scrollbar-track {
+    background-color: $background;
+    @include prefixer(border-radius, 15px, webkit moz o);
+    @include prefixer(box-shadow, 0 0 10px inset rgba($darkColor, 0.8), webkit moz o);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: $mainColor;
+    @include prefixer(border-radius, 15px, webkit moz o);
+}
+
+/* End Global Rules */
+/*Start Scrolling Btn*/
+.scrolling {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    background-color: rgba($mainColor, 0.8);
+    color: $darkColor;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 10;
+    @include prefixer(transition, $transition, webkit moz o);
+    @include opacity(0);
+
+
+    &:hover {
+        background-color: $mainColor;
+    }
+}
+
+/*End Scrooling Btn*/

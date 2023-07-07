@@ -1,0 +1,14 @@
+// Mixin Flex Box
+@mixin flexbox($content) {
+    display: flex;
+    justify-content: $content;
+    align-items: center;
+}
+
+// Mixin Gird System
+@mixin gridSystem($size) {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax($size, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}

@@ -1,0 +1,476 @@
+/* Start Slider Section */
+.landing {
+    position: relative;
+
+    .slider {
+        position: relative;
+        margin: 0;
+
+        .slider-content {
+            position: absolute;
+            @include opacity(0);
+
+            &.active {
+                @include opacity(1);
+            }
+
+            .image {
+                position: relative;
+
+                img {
+                    width: 100%;
+                    max-width: 100%;
+                    height: calc(100vh - 64px);
+                    object-fit: cover;
+
+                    @include breakPoint(large) {
+                        width: 2000px;
+                        max-width: 100%;
+                    }
+                }
+            }
+
+            .info {
+                position: absolute;
+                left: 50%;
+                top: 50%;
+                text-align: center;
+                color: #FFF;
+                @include prefixer(transform, translate(-50%, -50%), webkit moz o);
+
+                h2 {
+                    color: $mainColor;
+                    margin: 0;
+                    font-size: 35px;
+                    text-align: center;
+
+                    @include breakPoint(mobile) {
+                        font-size: 28px;
+                    }
+                }
+
+                p {
+                    margin: 15px 0;
+                    width: 300px;
+                    max-width: 100%;
+                    font-size: 18px;
+                    color: #FFF;
+                    font-weight: 500;
+                    text-align: center;
+                }
+            }
+        }
+    }
+
+    .slider-controls {
+        position: relative;
+        height: calc(100vh - 64px);
+
+        .next,
+        .prev {
+            position: absolute;
+            top: 50%;
+            cursor: pointer;
+            color: $mainColor;
+            user-select: none;
+            @include opacity(0.6);
+            @include prefixer(transform, translateY(-50%), webkit moz o);
+            @include prefixer(transition, $transition, webkit moz o);
+
+            &:hover {
+                @include opacity(1);
+            }
+
+            @include breakPoint(mobile) {
+                @include opacity(0);
+            }
+        }
+
+        .next {
+            right: 30px;
+        }
+
+        .prev {
+            left: 30px;
+        }
+
+        .bullets {
+            display: flex;
+            position: absolute;
+            left: 50%;
+            bottom: 30px;
+            @include prefixer(transform, translateX(-50%), webkit moz o);
+
+            @include breakPoint(mobile) {
+                @include opacity(0);
+            }
+
+            li {
+                width: 16px;
+                height: 16px;
+                background-color: transparent;
+                margin: 0 3px;
+                border: 1px solid $mainColor;
+                cursor: pointer;
+                user-select: none;
+                @include prefixer (border-radius, 50%, webkit moz o);
+                @include prefixer(transition, $transition, webkit moz o);
+
+                &.active {
+                    background-color: $mainColor;
+                }
+            }
+        }
+    }
+}
+
+/* End Slider Section*/
+/* Start Features Section*/
+.features {
+    padding-top: ($paddingTop - 20px);
+    padding-bottom: ($paddingBottom - 20px);
+    background-color: $background;
+    text-align: center;
+
+    .features-content {
+        @include gridSystem(270px);
+
+        .feat {
+            margin: 0;
+
+            @include breakPoint(mobile) {
+                margin-bottom: 20px;
+            }
+
+            i {
+                font-size: 25px;
+                color: $mainColor;
+                margin-bottom: 15px;
+            }
+
+            h3 {
+                color: $darkColor;
+                margin-bottom: 15px;
+                text-transform: capitalize;
+            }
+
+            p {
+                color: $textColor;
+                margin: 0;
+                line-height: 1.7;
+            }
+        }
+    }
+}
+
+/* End Features Section*/
+/* Start Services Section*/
+.services {
+    padding-top: $paddingTop;
+    padding-bottom: $paddingBottom;
+
+    .services-content {
+        @include gridSystem(270px);
+
+        .col {
+            .ser {
+                display: flex;
+                margin-bottom: 30px;
+
+                @include breakPoint(mobile) {
+                    flex-direction: column;
+                    text-align: center;
+                }
+
+                i {
+                    color: $mainColor;
+                    font-size: 25px;
+                    flex-basis: 40px;
+                }
+
+                .text {
+                    flex: 1;
+
+                    h3 {
+                        margin: 0;
+                        text-transform: capitalize;
+                        color: $darkColor;
+                    }
+
+                    p {
+                        margin: 10px 0;
+                        line-height: 1.7;
+                        color: $textColor;
+                        font-size: 15px;
+                        text-align: justify;
+                        font-weight: 600;
+
+                        @include breakPoint(mobile) {
+                            text-align: center;
+                        }
+                    }
+                }
+            }
+
+            .image {
+                text-align: center;
+                position: relative;
+                display: none;
+
+                @include breakPoint(medium) {
+                    display: block;
+                }
+
+                img {
+                    width: 300px;
+                    max-width: 100%;
+                    min-height: 300px;
+                }
+
+                &::before {
+                    content: "";
+                    position: absolute;
+                    width: 80px;
+                    height: calc(100% + 80px);
+                    background-color: $darkColor;
+                    right: 0;
+                    top: -40px;
+                    z-index: -1;
+                }
+            }
+        }
+    }
+}
+
+/* End Services Section*/
+/* Start Portfolio Section*/
+.portfolio {
+    @extend .features;
+    text-align: left;
+
+    .portfolio-content {
+        @include gridSystem(270px);
+
+        .card {
+            background-color: #FFF;
+
+            &.hidden {
+                display: none;
+            }
+
+            img {
+                max-width: 100%;
+            }
+
+            .info {
+                padding: 20px;
+                margin: 0;
+
+                @include breakPoint(mobile) {
+                    text-align: center;
+                }
+
+                h3 {
+                    text-transform: capitalize;
+                    color: $darkColor;
+                    margin: 0;
+                }
+
+                p {
+                    margin: 14px auto 0;
+                    line-height: 1.7;
+                    color: $textColor;
+                    font-size: 18px;
+                    font-weight: 500;
+                    text-align: justify;
+
+                    @include breakPoint(mobile) {
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/* End Portfolio Section*/
+/* Start About Us Section*/
+.about {
+    @extend .services;
+
+    .about-content {
+        @include flexbox(space-between);
+
+        .image {
+            flex-basis: 300px;
+            position: relative;
+            text-align: center;
+
+            @include breakPoint(mobile) {
+                display: none;
+            }
+
+            img {
+                width: 100%;
+                max-width: 100%;
+                height: 300px;
+            }
+
+            &::before {
+                content: "";
+                position: absolute;
+                width: 80px;
+                height: calc(100% + 80px);
+                background-color: $lightColor;
+                left: -40px;
+                top: -40px;
+                z-index: -1;
+                display: none;
+
+                @include breakPoint(large) {
+                    display: block;
+                }
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                left: 240px;
+                top: -40px;
+                width: 100px;
+                height: 200px;
+                border-left: 100px solid $mainColor;
+                border-bottom: 100px solid $mainColor;
+                z-index: -1;
+                display: none;
+
+                @include breakPoint(large) {
+                    display: block;
+                }
+            }
+        }
+
+        .info {
+            width: 600px;
+            margin-left: 30px;
+
+            p {
+                line-height: 1.7;
+                text-align: justify;
+                margin: 0;
+
+                @include breakPoint(mobile) {
+                    text-align: center;
+                }
+
+                &:first-of-type {
+                    font-size: 18px;
+                    font-weight: bold;
+                    color: $darkColor;
+                }
+
+                &:last-of-type {
+                    font-weight: 400;
+                    color: $textColor;
+                }
+            }
+
+            hr {
+                display: inline-block;
+                border-color: $mainColor;
+                width: 60%;
+                margin-top: 30px;
+                margin-bottom: 30px;
+
+                @include breakPoint(mobile) {
+                    display: block;
+                }
+            }
+        }
+    }
+}
+
+/* End About Us Section*/
+/* Start Contact Section*/
+.contact {
+    @extend .portfolio;
+
+    .msg {
+        text-align: center;
+        background-color: $mainColor;
+        color: #FFF;
+        padding: 5px 10px;
+        width: fit-content;
+        margin: -30px auto 10px;
+        user-select: none;
+        font-weight: bold;
+        @include prefixer(border-radius, 8px, webkit moz o);
+        @include prefixer(transition, $transition, webkit moz o);
+        @include opacity(0);
+    }
+
+    .contact-content {
+        display: flex;
+        align-items: center;
+
+        @include breakPoint(mobile) {
+            flex-direction: column;
+        }
+
+        .col {
+            width: 48%;
+            margin: 0 4%;
+
+            @include breakPoint(mobile) {
+                width: 100%;
+            }
+
+            input,
+            textarea {
+                display: block;
+                width: 100%;
+                max-width: 100%;
+                border: 2px solid $darkColor;
+                padding: 5px 10px;
+                background-color: $background;
+                caret-color: $darkColor;
+                color: $mainColor;
+                font-weight: 500;
+                @include prefixer(transition, $transition, webkit moz o);
+
+                &:focus {
+                    outline: none;
+                }
+
+                &::placeholder {
+                    color: $darkColor;
+                    font-weight: normal;
+                }
+            }
+
+            input {
+                height: 40px;
+                margin: 15px 0;
+
+                &.submit {
+                    font-size: 18px;
+                    font-weight: 500;
+                    cursor: pointer;
+                    color: $darkColor;
+
+                    &:hover {
+                        background-color: $mainColor;
+                        color: #FFF;
+                    }
+                }
+            }
+
+            textarea {
+                height: 150px;
+                margin: 15px 0;
+            }
+        }
+    }
+}
+
+/* End Contact Section */

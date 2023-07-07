@@ -1,0 +1,48 @@
+// Mixin Media For Screens
+@mixin breakPoint($point) {
+
+    // Mobile Screen
+    @if $point ==mobile {
+        @media (max-width: 767px) {
+            @content;
+        }
+    }
+
+    // Small Screen
+    @else if $point ==small {
+        @media (min-width: 768px) {
+            @content;
+        }
+    }
+
+    // Medium Screen
+    @else if $point ==medium {
+        @media (min-width: 992px) {
+            @content;
+        }
+    }
+
+    // Large Screen
+    @else if $point ==large {
+        @media (min-width: 1200px) {
+            @content;
+        }
+    }
+}
+
+// Mixin Opacity All Browsers
+@mixin opacity($value) {
+    zoom: 1;
+    $opacity-al: $value * 100;
+    filter: alpha(opacity=$opacity-al);
+    opacity: $value;
+}
+
+// Mixin For Css3 Prefix
+@mixin prefixer($properity, $val , $prefixes: ()) {
+    @each $prefix in $prefixes {
+        #{"-" + $prefix + "-" + $properity}: $val;
+    }
+
+    #{$properity}: $val;
+}
